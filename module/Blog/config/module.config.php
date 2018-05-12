@@ -17,15 +17,25 @@ return [
         ]
     ],
     'router'    =>  [
-        'blog'  =>  [
-            'type'      =>  'literal',
-            'options'   =>  '/blog',
-            'defaults'  =>  [
-                'controller'    =>  Controller\BlogController::class,
-                'action'        =>  'index'
+        'routes'    =>  [
+            'blog'  =>  [
+                'type'      =>  'Literal',
+                'options'   =>  [
+                    'route'    =>    '/blog',
+                    'defaults'  =>  [
+                        'controller'    =>  Controller\BlogController::class,
+                        'action'        =>  'index'
+                    ]
+                ]
             ]
         ]
     ],
+    'controllers'   => [
+        'invokables'    =>  [
+            Controller\BlogController::class => Controller\BlogController::class
+        ]
+    ],
+
     'view_manager'  =>  [
         'template_path_stack'   => [
             'blog'  =>  __DIR__."/../view"
